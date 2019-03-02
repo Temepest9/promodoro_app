@@ -6,7 +6,6 @@ class TodoController < ApplicationController
   end
 
   def index
-      @todo_description = "Make the curriculum"
-      @todo_pomodoro_estimate = 4
+
   end
 end
