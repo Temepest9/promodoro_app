@@ -6,6 +6,7 @@ class TodoController < ApplicationController
   end
 
   def index
+     
 
   end
 end
