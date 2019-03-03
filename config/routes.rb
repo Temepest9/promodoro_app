@@ -7,4 +7,8 @@ Rails.application.routes.draw do
   get 'todo/school/', to: 'todo#school'
   get 'todo/work/', to: 'todo#work'
   get 'todo/home/', to: 'todo#home'
+  get 'todo/edit/:id', to: 'todo#edit'
+  get 'todo/update/:id', to: 'todo#update'
+  
+  get 'todo/destroy/:id', to: 'todo#destroy'
 end

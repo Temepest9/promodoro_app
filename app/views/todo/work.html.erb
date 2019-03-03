@@ -1,64 +1,26 @@
-<h1>Food Todo List</h1>
+<h1>Work Todo List</h1>
     <div class="row">
     <ol>
-      <li>
-        <div class="column1"><input type="checkbox" name="delete_1" value="1"/></div>
-        <div class="column2"><a href="show/41">Complete Math project</a></div>
-        <span class="pomodoro-estimate large-pomodoro-estimate"><%= @todo_pomodoro_estimate %> Pomodoros</span>
-        <a href="#">Edit</a>
-        <a href="#">Delete</a>
-      </li>
-      <li>
-        <div class="column1"><input type="checkbox" name="delete_1" value="1"/></div>
-        <div class="column2"><a href="show/42">Complete History project</a></div>
-        <span class="pomodoro-estimate large-pomodoro-estimate"><%= 3+1 %> Pomodoros</span>
-        <a href="#">Edit</a>
-        <a href="#">Delete</a>
-      </li>
-      <li>
-        <div class="column1"><input type="checkbox" name="delete_1" value="1"/></div>
-        <div class="column2"><a href="show/43">Complete ELA project</a></div>
-        <span class="pomodoro-estimate large-pomodoro-estimate"><%= 3+1 %> Pomodoros</span>
-        <a href="#">Edit</a>
-        <a href="#">Delete</a>
-      </li>
-      <li>
-        <div class="column1"><input type="checkbox" name="delete_1" value="1"/></div>
-        <div class="column2"><a href="show/44">Complete Science project</a></div>
-        <span class="pomodoro-estimate large-pomodoro-estimate"><%= 3+1 %> Pomodoros</span>
-        <a href="#">Edit</a>
-        <a href="#">Delete</a>
-      </li>
-      <li>
-        <div class="column1"><input type="checkbox" name="delete_1" value="1"/></div>
-        <div class="column2"><a href="show/45">Complete Health project</a></div>
-        <span class="pomodoro-estimate large-pomodoro-estimate"><%= 3+1 %> Pomodoros</span>
-        <a href="#">Edit</a>
-        <a href="#">Delete</a>
-      </li>
-      <li>
-        <div class="column1"><input type="checkbox" name="delete_1" value="1"/></div>
-        <div class="column2"><a href="show/46">Get to school by 7:45</a></div>
-        <span class="pomodoro-estimate large-pomodoro-estimate"><%= 3+1 %> Pomodoros</span>
-        <a href="#">Edit</a>
-        <a href="#">Delete</a>
-      </li>
-      <li>
-        <div class="column1"><input type="checkbox" name="delete_1" value="1"/></div>
-        <div class="column2"><a href="show/47">Change for gym by 11:45</a></div>
-        <span class="pomodoro-estimate large-pomodoro-estimate"><%= 3+1 %> Pomodoros</span>
-        <a href="#">Edit</a>
-        <a href="#">Delete</a>
-      </li>
+      <% @todos.each do |todo| %>
+        <li>
+          <div class="column1"><input type="checkbox" name="delete_1" value="1"/></div>
+          <div class="column2"><a href="show/<%= todo.id %>"><%= todo.description %></a></div>
+          <span class="pomodoro-estimate large-pomodoro-estimate"><%= todo.pomodoro_estimate %> Pomodoros</span>
+          <a href="#">Edit</a>
+          <a href="/todo/destroy/<%= todo.id %>">Delete</a>
+        </li>
+      <% end %>
     </ol>
     </div>
     <span class="box-one">Box 1</span>
 <span class="box-two">Box 2</span>
-    <input type="text" placeholder="Add a new todo...">
-<input type="number" placeholder="Pomodoro estimate...">
-<form action="/todo/new">
+    
+<form action="/todo/create">
+  <input type="text" name="description" placeholder="Add a new todo...">
+  <input type="number" name="estimate" placeholder="Pomodoro estimate...">
   <input type="submit" value="Add todo" />
 </form>
+
 <!--<button> <a href="/todo/new" id="add-new-todo-button" type="submit" value="Add todo"> </button>-->
     <!--<h2>Make the curriculum 4 Pomodoros</h2>-->
     <a href="/todo/index">Go back...</a>
