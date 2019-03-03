@@ -2,7 +2,7 @@ class TodoController < ApplicationController
 
   def show
     todo_id = '2'
-
+      @todo = Todo.find_by_id(params[:id])
     if todo_id == '1'
       @todo_description = "Make the curriculum"
       @todo_pomodoro_estimate = 4
